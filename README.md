@@ -1,2 +1,2 @@
-# The1-T1PSDK-Android-Demo
-The1-T1PSDK-Android-Demo for our partners
+# T1PSDK-Android
+T1PSDK-Android for our partners
