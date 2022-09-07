@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="th.co.the1.t1p.demo.DemoActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:padding="16dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvToolbars"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="T1P SDK DEMO"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvEnvironment"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Environment"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvToolbars" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupEnvironment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvEnvironment"
+            app:layout_constraintTop_toBottomOf="@id/tvToolbars">
+
+            <RadioButton
+                android:id="@+id/radioSit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="SIT"
+                android:textColor="#000000" />
+
+            <RadioButton
+                android:id="@+id/radioUat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="UAT"
+                android:textColor="#000000" />
+
+            <RadioButton
+                android:id="@+id/radioPvt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PVT"
+                android:textColor="#000000" />
+
+            <RadioButton
+                android:id="@+id/radioProd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PROD"
+                android:textColor="#000000" />
+
+        </RadioGroup>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvLanguage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Language"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/tvEnvironment"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroupEnvironment" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupLanguage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvLanguage"
+            app:layout_constraintTop_toTopOf="@id/tvLanguage">
+
+            <RadioButton
+                android:id="@+id/radioThai"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="Thai"
+                android:textColor="#000000" />
+
+            <RadioButton
+                android:id="@+id/radioEnglish"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="English"
+                android:textColor="#000000" />
+
+        </RadioGroup>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvClientId"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="ClientId"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/tvEnvironment"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroupLanguage" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/editTextClientId"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="cds_sdk"
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvClientId"
+            app:layout_constraintTop_toTopOf="@id/tvClientId" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvRedirectUrl"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Redirect URL"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/tvEnvironment"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextClientId" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/editTextRedirectUrl"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="https://oidcdebugger.com/debug"
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvRedirectUrl"
+            app:layout_constraintTop_toTopOf="@id/tvRedirectUrl" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSetup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:enabled="true"
+            android:text="Setup"
+            app:layout_constraintEnd_toStartOf="@id/btnReload"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editTextRedirectUrl" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnReload"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:enabled="false"
+            android:text="Reload"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnSetup"
+            app:layout_constraintTop_toBottomOf="@id/editTextRedirectUrl" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSignUp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="Sign up"
+            android:visibility="visible"
+            app:layout_constraintEnd_toStartOf="@id/btnReload"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnSetup" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnRecovery"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="Recovery"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnSignUp"
+            app:layout_constraintTop_toBottomOf="@id/btnSetup" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSignIn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="Sign in"
+            app:layout_constraintEnd_toStartOf="@id/btnReload"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnSignUp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSignOut"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="Sign out"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnSignIn"
+            app:layout_constraintTop_toBottomOf="@id/btnSignUp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnAccessToken"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="Access Token"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnSignOut" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

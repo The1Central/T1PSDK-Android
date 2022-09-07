@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">t1p_sdk</string>
+    <string name="dialog_leave_page_title">Leave this page?</string>
+    <string name="dialog_leave_page_message">If you leave this page, you will need to\nre-enter your information</string>
+    <string name="button_leave_page">Leave</string>
+    <string name="button_go_back">Go Back</string>
+</resources>
