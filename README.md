@@ -1,24 +1,32 @@
 # T1P SDK Android - WebView embedded version
 
-<a href="http://developer.android.com/index.html" target="_blank"><img src="https://img.shields.io/badge/platform-android-green.svg"/></a> <a href="https://android-arsenal.com/api?level=26" target="_blank"><img src="https://img.shields.io/badge/API-26%2B-green.svg?style=flat"/></a>
+[![](https://jitpack.io/v/The1Central/T1PSDK-Android.svg)](https://jitpack.io/#mumayank/AirLocation)<a href="http://developer.android.com/index.html" target="_blank"><img src="https://img.shields.io/badge/platform-android-green.svg"/></a> <a href="https://android-arsenal.com/api?level=26" target="_blank"><img src="https://img.shields.io/badge/API-26%2B-green.svg?style=flat"/></a>
 
-An android library to simplify the usage of Autheitcation with The1 Platform
+An android library to simplify the usage of Authentication with The1 Platform
 
 Jump
-to [Setup](https://github.com/The1Central/The1-T1PSDK-Android/blob/master/README.md#setup "Setup")
-or [Usage](https://github.com/The1Central/The1-T1PSDK-Android/blob/master/README.md#usage "Usage")
+to [Setup](https://github.com/The1Central/T1PSDK-Android/blob/master/README.md#Setup "Setup")
+or [Usage](https://github.com/The1Central/T1PSDK-Android/blob/master/README.md#Usage "Usage")
 
 # Setup
 
-Add this line in your app build.gradle:
+Add this line in your root build.gradle at the end of repositories:
 
 ```gradle
-    dependencies {
-      implementation project(path: ':sdk')
+    allprojects {
+      repositories {
+        ...
+        maven { url 'https://jitpack.io' } // this line
+      }
     }
 ```
-
-where LATEST_VERSION is The1 Engineering Teams
+Add this line in your app build.gradle:
+```gradle
+    dependencies {
+      implementation 'com.github.The1Central:T1PSDK-Android:LATEST_VERSION' // this line
+    }
+```
+where LATEST_VERSION is [![](https://jitpack.io/v/The1Central/T1PSDK-Android.svg)](https://jitpack.io/#The1Central/T1PSDK-Android)
 
 # Usage
 
@@ -29,18 +37,18 @@ Example:
 ```kotlin
     class MainActivity : AppCompatActivity() {
 
-    private lateinit var t1PSDK: T1PSDK
+  private lateinit var t1PSDK: T1PSDK
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        ...
-        t1PSDK = T1PSDK(
-            activity = this,
-            environment = T1PEnvironment.PROD,
-            redirectUrl = "VALUE FROM The1 Engineering Teams",
-            clientId = "VALUE FROM The1 Engineering Teams",
-            language = T1PLanguage.EN
-        )
-    }
+  override fun onCreate(savedInstanceState: Bundle?) {
+    ...
+    t1PSDK = T1PSDK(
+      activity = this,
+      environment = T1PEnvironment.PROD,
+      redirectUrl = "VALUE FROM The1 Engineering Teams",
+      clientId = "VALUE FROM The1 Engineering Teams",
+      language = T1PLanguage.EN
+    )
+  }
 }
 ```
 
@@ -54,30 +62,30 @@ Example:
 ```kotlin
     class MainActivity : AppCompatActivity() {
 
-    private lateinit var t1PSDK: T1PSDK
+  private lateinit var t1PSDK: T1PSDK
 
-    private val signInActivityResult =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            if (result.resultCode == Activity.RESULT_OK) {
-                result.data?.getParcelableExtra<AuthToken>(InitialPage.SIGN_IN.value)
-                    ?.let { authToken ->
-                        //authToken is value from T1PSDK
-                    }
-            }
-        }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        ...
-        t1PSDK = T1PSDK(
-            activity = this,
-            environment = T1PEnvironment.PROD,
-            redirectUrl = "VALUE FROM The1 Engineering Teams",
-            clientId = "VALUE FROM The1 Engineering Teams",
-            language = T1PLanguage.EN
-        )
-
-        t1PSDK.signIn(onActivityResult = signInActivityResult)
+  private val signInActivityResult =
+    registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+      if (result.resultCode == Activity.RESULT_OK) {
+        result.data?.getParcelableExtra<AuthToken>(InitialPage.SIGN_IN.value)
+          ?.let { authToken ->
+            //authToken is value from T1PSDK
+          }
+      }
     }
+
+  override fun onCreate(savedInstanceState: Bundle?) {
+    ...
+    t1PSDK = T1PSDK(
+      activity = this,
+      environment = T1PEnvironment.PROD,
+      redirectUrl = "VALUE FROM The1 Engineering Teams",
+      clientId = "VALUE FROM The1 Engineering Teams",
+      language = T1PLanguage.EN
+    )
+
+    t1PSDK.signIn(onActivityResult = signInActivityResult)
+  }
 }
 ```
 
@@ -91,30 +99,30 @@ Example:
 ```kotlin
     class MainActivity : AppCompatActivity() {
 
-    private lateinit var t1PSDK: T1PSDK
+  private lateinit var t1PSDK: T1PSDK
 
-    private val signUpActivityResult =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            if (result.resultCode == Activity.RESULT_OK) {
-                result.data?.getParcelableExtra<AuthToken>(InitialPage.SIGN_UP.value)
-                    ?.let { authToken ->
-                        //authToken is value from T1PSDK
-                    }
-            }
-        }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        ...
-        t1PSDK = T1PSDK(
-            activity = this,
-            environment = T1PEnvironment.PROD,
-            redirectUrl = "VALUE FROM The1 Engineering Teams",
-            clientId = "VALUE FROM The1 Engineering Teams",
-            language = T1PLanguage.EN
-        )
-
-        t1PSDK.signUp(onActivityResult = signUpActivityResult)
+  private val signUpActivityResult =
+    registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+      if (result.resultCode == Activity.RESULT_OK) {
+        result.data?.getParcelableExtra<AuthToken>(InitialPage.SIGN_UP.value)
+          ?.let { authToken ->
+            //authToken is value from T1PSDK
+          }
+      }
     }
+
+  override fun onCreate(savedInstanceState: Bundle?) {
+    ...
+    t1PSDK = T1PSDK(
+      activity = this,
+      environment = T1PEnvironment.PROD,
+      redirectUrl = "VALUE FROM The1 Engineering Teams",
+      clientId = "VALUE FROM The1 Engineering Teams",
+      language = T1PLanguage.EN
+    )
+
+    t1PSDK.signUp(onActivityResult = signUpActivityResult)
+  }
 }
 ```
 
@@ -128,30 +136,30 @@ Example:
 ```kotlin
     class MainActivity : AppCompatActivity() {
 
-    private lateinit var t1PSDK: T1PSDK
+  private lateinit var t1PSDK: T1PSDK
 
-    private val recoveryActivityResult =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            if (result.resultCode == Activity.RESULT_OK) {
-                result.data?.getParcelableExtra<AuthToken>(InitialPage.RECOVERY.value)
-                    ?.let { authToken ->
-                        //authToken is value from T1PSDK
-                    }
-            }
-        }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        ...
-        t1PSDK = T1PSDK(
-            activity = this,
-            environment = T1PEnvironment.PROD,
-            redirectUrl = "VALUE FROM The1 Engineering Teams",
-            clientId = "VALUE FROM The1 Engineering Teams",
-            language = T1PLanguage.EN
-        )
-
-        t1PSDK.recovery(onActivityResult = recoveryActivityResult)
+  private val recoveryActivityResult =
+    registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+      if (result.resultCode == Activity.RESULT_OK) {
+        result.data?.getParcelableExtra<AuthToken>(InitialPage.RECOVERY.value)
+          ?.let { authToken ->
+            //authToken is value from T1PSDK
+          }
+      }
     }
+
+  override fun onCreate(savedInstanceState: Bundle?) {
+    ...
+    t1PSDK = T1PSDK(
+      activity = this,
+      environment = T1PEnvironment.PROD,
+      redirectUrl = "VALUE FROM The1 Engineering Teams",
+      clientId = "VALUE FROM The1 Engineering Teams",
+      language = T1PLanguage.EN
+    )
+
+    t1PSDK.recovery(onActivityResult = recoveryActivityResult)
+  }
 }
 ```
 
@@ -162,28 +170,28 @@ Example:
 ```kotlin
     class MainActivity : AppCompatActivity() {
 
-    private lateinit var t1PSDK: T1PSDK
+  private lateinit var t1PSDK: T1PSDK
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        ...
-        t1PSDK = T1PSDK(
-            activity = this,
-            environment = T1PEnvironment.PROD,
-            redirectUrl = "VALUE FROM The1 Engineering Teams",
-            clientId = "VALUE FROM The1 Engineering Teams",
-            language = T1PLanguage.EN
-        )
+  override fun onCreate(savedInstanceState: Bundle?) {
+    ...
+    t1PSDK = T1PSDK(
+      activity = this,
+      environment = T1PEnvironment.PROD,
+      redirectUrl = "VALUE FROM The1 Engineering Teams",
+      clientId = "VALUE FROM The1 Engineering Teams",
+      language = T1PLanguage.EN
+    )
 
-        t1PSDK.accessToken(object : T1PSdkAccessTokenCallback {
-            override fun onSuccess(authToken: AuthToken) {
-                //authToken is value from T1PSDK
-            }
+    t1PSDK.accessToken(object : T1PSdkAccessTokenCallback {
+      override fun onSuccess(authToken: AuthToken) {
+        //authToken is value from T1PSDK
+      }
 
-            override fun onFailure(t1pSdkFailed: T1PSdkFailedEnum) {
-                //Type of Failed Exception
-            }
-        })
-    }
+      override fun onFailure(t1pSdkFailed: T1PSdkFailedEnum) {
+        //Type of Failed Exception
+      }
+    })
+  }
 }
 ```
 
@@ -197,27 +205,27 @@ Example:
 ```kotlin
     class MainActivity : AppCompatActivity() {
 
-    private lateinit var t1PSDK: T1PSDK
+  private lateinit var t1PSDK: T1PSDK
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        ...
-        t1PSDK = T1PSDK(
-            activity = this,
-            environment = T1PEnvironment.PROD,
-            redirectUrl = "VALUE FROM The1 Engineering Teams",
-            clientId = "VALUE FROM The1 Engineering Teams",
-            language = T1PLanguage.EN
-        )
+  override fun onCreate(savedInstanceState: Bundle?) {
+    ...
+    t1PSDK = T1PSDK(
+      activity = this,
+      environment = T1PEnvironment.PROD,
+      redirectUrl = "VALUE FROM The1 Engineering Teams",
+      clientId = "VALUE FROM The1 Engineering Teams",
+      language = T1PLanguage.EN
+    )
 
-        t1PSDK.signOut(object : T1PSdkCallback {
-            override fun onSuccess() {
-                //Notify logout success
-            }
+    t1PSDK.signOut(object : T1PSdkCallback {
+      override fun onSuccess() {
+        //Notify logout success
+      }
 
-            override fun onFailure() {
-                //Notify logout failure
-            }
-        })
-    }
+      override fun onFailure() {
+        //Notify logout failure
+      }
+    })
+  }
 }
 ```
